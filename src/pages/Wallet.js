@@ -32,7 +32,7 @@ class Wallet extends React.Component {
   }
 
   addExpenses = () => {
-    const { saveExpensesWallet, expenses } = this.props;
+    const { saveExpensesWallet, expenses, totalValue } = this.props;
     const {
       valueInput,
       descriptionInput,
@@ -54,6 +54,7 @@ class Wallet extends React.Component {
         methodInput,
         tagInput,
         expenses,
+        totalValue,
       });
     });
   }
@@ -149,6 +150,7 @@ class Wallet extends React.Component {
 const mapStateToProps = (state) => ({
   currencies: state.wallet.currencies,
   expenses: state.wallet.expenses,
+  totalValue: state.wallet.totalValue,
 });
 
 const mapDispatchToProps = (dispatch) => ({

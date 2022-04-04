@@ -2,6 +2,7 @@
 const initialState = {
   currencies: [],
   expenses: [],
+  totalValue: 0,
   isFetching: false,
 };
 
@@ -20,6 +21,7 @@ const wallet = (state = initialState, action) => {
     return {
       ...state,
       expenses: [...state.expenses, ...action.expense],
+      totalValue: action.totalValue,
     };
   default:
     return state;
