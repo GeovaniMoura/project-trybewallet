@@ -9,12 +9,17 @@ const wallet = (state = initialState, action) => {
   switch (action.type) {
   case 'SUCESS_REQUEST':
     return {
+      ...state,
       currencies: action.payload,
-      isFetching: false,
     };
   case 'REQUEST':
     return {
-      isFetching: action.isFetching,
+      ...state,
+    };
+  case 'SUCESS_REQUEST_SAVE_EXPENSE':
+    return {
+      ...state,
+      expenses: [...state.expenses, ...action.expense],
     };
   default:
     return state;
