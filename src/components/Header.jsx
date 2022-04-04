@@ -7,20 +7,23 @@ class Header extends React.Component {
     super(props);
 
     this.state = {
+      totalSum: 0,
     };
   }
 
+  componentDidMount() {
+    const { totalValue } = this.props;
+    if (totalValue > 0) this.setState({ totalSum: totalValue });
+  }
+
   render() {
-    const { email, totalValue } = this.props;
+    const { email } = this.props;
+    const { totalSum } = this.state;
     return (
       <header>
         <p data-testid="email-field">{email}</p>
-        <label data-testid="header-currency-field" htmlFor="total-field">
-          <p id="total-field" data-testid="total-field">
-            {totalValue}
-          </p>
-          BRL
-        </label>
+        <p data-testid="total-field">{totalSum}</p>
+        <p data-testid="header-currency-field">BRL</p>
         <div>TrybeWallet</div>
       </header>
     );
