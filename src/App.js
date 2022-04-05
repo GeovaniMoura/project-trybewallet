@@ -2,7 +2,6 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Login from './pages/Login';
 import Wallet from './pages/Wallet';
-import EditForm from './components/EditForm';
 
 class App extends React.Component {
   render() {
@@ -17,11 +16,6 @@ class App extends React.Component {
           exact
           path="/carteira"
           component={ Wallet }
-        />
-        <Route
-          exact
-          path="/editform"
-          component={ EditForm }
         />
       </Switch>
     );
