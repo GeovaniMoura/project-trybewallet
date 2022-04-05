@@ -55,4 +55,9 @@ export const saveExpense = ({
   }
 );
 
+export const deleteExpense = (payload) => ({
+  type: 'DELETE_EXPENSE',
+  payload,
+});
+
 export default saveLoginInfo;
