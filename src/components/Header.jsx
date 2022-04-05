@@ -6,23 +6,24 @@ class Header extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      totalSum: 0,
-    };
+    this.state = {};
   }
 
-  componentDidMount() {
-    const { totalValue } = this.props;
-    if (totalValue > 0) this.setState({ totalSum: totalValue });
+  updateValue = () => {
+    const { expenses } = this.props;
+    let totalSum = 0;
+    expenses.forEach((item) => {
+      totalSum += Number(item.value) * Number(item.exchangeRates[item.currency].ask);
+    });
+    return totalSum.toFixed(2);
   }
 
   render() {
     const { email } = this.props;
-    const { totalSum } = this.state;
     return (
       <header>
         <p data-testid="email-field">{email}</p>
-        <p data-testid="total-field">{totalSum}</p>
+        <p data-testid="total-field">{this.updateValue()}</p>
         <p data-testid="header-currency-field">BRL</p>
         <div>TrybeWallet</div>
       </header>
@@ -38,7 +39,6 @@ Header.propTypes = {
 const mapStateToProps = (state) => ({
   email: state.user.email,
   expenses: state.wallet.expenses,
-  totalValue: state.wallet.totalValue,
 });
 
 export default connect(mapStateToProps)(Header);

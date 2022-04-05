@@ -8,10 +8,9 @@ const failedRequest = (error) => ({ type: 'FAILED_REQUEST', error });
 
 const sucessRequest = (payload) => ({ type: 'SUCESS_REQUEST', payload });
 
-const sucessRequestSaveExpense = (expense, totalValue) => ({
+const sucessRequestSaveExpense = (expense) => ({
   type: 'SUCESS_REQUEST_SAVE_EXPENSE',
   expense,
-  totalValue,
 });
 
 export function getCurrencies() {
@@ -35,7 +34,6 @@ export const saveExpense = ({
   methodInput,
   tagInput,
   expenses,
-  totalValue,
 }) => (
   async (dispatch) => {
     try {
@@ -50,8 +48,7 @@ export const saveExpense = ({
         tag: tagInput,
         exchangeRates: data,
       }];
-      const totalsum = (totalValue + (valueInput * (data[currencyInput].ask))).toFixed(2);
-      dispatch(sucessRequestSaveExpense(expense, totalsum));
+      dispatch(sucessRequestSaveExpense(expense));
     } catch (error) {
       dispatch(failedRequest(error));
     }
