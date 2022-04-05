@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { deleteExpense } from '../actions';
+import { deleteAndUpdateExpense } from '../actions';
 
 class Table extends React.Component {
   removeExpense = (id) => {
@@ -10,14 +10,8 @@ class Table extends React.Component {
     delExpense(removeExpense);
   }
 
-  // editExpense = (id) => {
-  //   const { expenses } = this.props;
-
-  //   // const removeExpense = expenses.filter((item) => item.id !== id);
-  // }
-
   render() {
-    const { expenses, history } = this.props;
+    const { expenses, editExpense } = this.props;
     return (
       <table>
         <caption>Gastos</caption>
@@ -49,7 +43,14 @@ class Table extends React.Component {
                 <button
                   type="button"
                   data-testid="edit-btn"
-                  onClick={ () => history.push('/editform') }
+                  onClick={ () => editExpense({
+                    id: item.id,
+                    value: item.value,
+                    description: item.description,
+                    currency: item.currency,
+                    method: item.method,
+                    tag: item.tag,
+                  }) }
                 >
                   Editar
                 </button>
@@ -78,7 +79,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  delExpense: (payload) => dispatch(deleteExpense(payload)),
+  delExpense: (payload) => dispatch(deleteAndUpdateExpense(payload)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Table);

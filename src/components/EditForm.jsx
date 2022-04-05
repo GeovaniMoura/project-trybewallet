@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { getCurrencies, saveExpense } from '../actions';
 import Header from './Header';
+import Table from './Table';
 
 const ALIMENTACAO = 'Alimentação';
 
@@ -37,6 +39,8 @@ class EditForm extends React.Component {
       methodInput,
       tagInput,
     } = this.state;
+
+    const { currencies } = this.props;
 
     return (
       <div>
@@ -112,6 +116,7 @@ class EditForm extends React.Component {
             Editar despesa
           </button>
         </form>
+        <Table />
       </div>
     );
   }

@@ -55,8 +55,8 @@ export const saveExpense = ({
   }
 );
 
-export const deleteExpense = (payload) => ({
-  type: 'DELETE_EXPENSE',
+export const deleteAndUpdateExpense = (payload) => ({
+  type: 'DELETE_AND_UPDATE_EXPENSE',
   payload,
 });
 

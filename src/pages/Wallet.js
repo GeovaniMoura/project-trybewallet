@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { getCurrencies, saveExpense } from '../actions';
+import { deleteAndUpdateExpense, getCurrencies, saveExpense } from '../actions';
 import Header from '../components/Header';
 import Table from '../components/Table';
 
@@ -17,6 +17,8 @@ class Wallet extends React.Component {
       currencyInput: 'USD',
       methodInput: 'Dinheiro',
       tagInput: ALIMENTACAO,
+      editForm: false,
+      idEditing: 0,
     };
   }
 
@@ -58,6 +60,36 @@ class Wallet extends React.Component {
     });
   }
 
+  editExpense = ({ id, value, description, currency, method, tag }) => {
+    this.setState({
+      valueInput: value,
+      descriptionInput: description,
+      currencyInput: currency,
+      methodInput: method,
+      tagInput: tag,
+      editForm: true,
+      idEditing: id,
+    });
+  }
+
+  finishEditing = (id) => {
+    const { expenses, delAndUpdateExpense } = this.props;
+    const {
+      valueInput,
+      descriptionInput,
+      currencyInput,
+      methodInput,
+      tagInput,
+    } = this.state;
+    expenses[id].value = valueInput;
+    expenses[id].description = descriptionInput;
+    expenses[id].currency = currencyInput;
+    expenses[id].method = methodInput;
+    expenses[id].tag = tagInput;
+    delAndUpdateExpense(expenses);
+    this.setState({ editForm: false, idEditing: null });
+  }
+
   render() {
     const {
       valueInput,
@@ -65,6 +97,8 @@ class Wallet extends React.Component {
       currencyInput,
       methodInput,
       tagInput,
+      editForm,
+      idEditing,
     } = this.state;
 
     const { currencies } = this.props;
@@ -138,9 +172,18 @@ class Wallet extends React.Component {
               <option value="Saúde">Saúde</option>
             </select>
           </label>
-          <button type="button" onClick={ this.addExpenses }>Adicionar despesa</button>
+          {editForm ? (
+            <button
+              type="button"
+              onClick={ () => this.finishEditing(idEditing) }
+            >
+              Editar despesa
+            </button>
+          ) : (
+            <button type="button" onClick={ this.addExpenses }>Adicionar despesa</button>
+          )}
         </form>
-        <Table />
+        <Table editExpense={ this.editExpense } />
       </div>
     );
   }
@@ -154,6 +197,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   getCurrenciesWallet: () => dispatch(getCurrencies()),
   saveExpensesWallet: (currencie) => dispatch(saveExpense(currencie)),
+  delAndUpdateExpense: (payload) => dispatch(deleteAndUpdateExpense(payload)),
 });
 
 Wallet.propTypes = {

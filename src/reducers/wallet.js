@@ -21,7 +21,7 @@ const wallet = (state = initialState, action) => {
       ...state,
       expenses: [...state.expenses, ...action.expense],
     };
-  case 'DELETE_EXPENSE':
+  case 'DELETE_AND_UPDATE_EXPENSE':
     return {
       ...state,
       expenses: [...action.payload],
