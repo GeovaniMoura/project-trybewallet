@@ -1,9 +1,11 @@
 import React from 'react';
+import EmailValidator from 'email-validator';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import saveLoginInfo from '../actions';
+import styles from './Form.module.css';
+import saveLoginInfo from '../../redux/actions';
 
-class Login extends React.Component {
+class Form extends React.Component {
   constructor(props) {
     super(props);
 
@@ -23,9 +25,7 @@ class Login extends React.Component {
   validateForm = () => {
     const { email, password } = this.state;
     const SIX = 6;
-    // peguei a referencia do regex nesse link https://stackoverflow.com/questions/46155/whats-the-best-way-to-validate-an-email-address-in-javascript
-    const regexEmail = /\S+@\S+\.\S+/;
-    const validadeEmail = regexEmail.test(email);
+    const validadeEmail = EmailValidator.validate(email);
     const validadePassword = password.length >= SIX;
     if (validadeEmail && validadePassword) {
       this.setState({ buttonIsDisabled: false });
@@ -44,7 +44,7 @@ class Login extends React.Component {
   render() {
     const { email, password, buttonIsDisabled } = this.state;
     return (
-      <form>
+      <form className={ styles.form_login }>
         <label htmlFor="email">
           <input
             id="email"
@@ -52,6 +52,8 @@ class Login extends React.Component {
             value={ email }
             onChange={ this.inputChange }
             data-testid="email-input"
+            placeholder="Digite seu e-mail"
+            className={ styles.input_login }
           />
         </label>
         <label htmlFor="password">
@@ -62,6 +64,8 @@ class Login extends React.Component {
             value={ password }
             onChange={ this.inputChange }
             data-testid="password-input"
+            placeholder="Digite sua senha"
+            className={ styles.input_login }
           />
         </label>
         <button
@@ -76,7 +80,7 @@ class Login extends React.Component {
   }
 }
 
-Login.propTypes = {
+Form.propTypes = {
   history: PropTypes.shape({
     push: PropTypes.func,
   }),
@@ -87,4 +91,4 @@ const mapDispatchToProps = (dispatch) => ({
   loginInfo: (payload) => dispatch(saveLoginInfo(payload)),
 });
 
-export default connect(null, mapDispatchToProps)(Login);
+export default connect(null, mapDispatchToProps)(Form);

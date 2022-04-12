@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { deleteAndUpdateExpense, getCurrencies, saveExpense } from '../actions';
-import Header from '../components/Header';
-import Table from '../components/Table';
+import { deleteAndUpdateExpense, getCurrencies, saveExpense } from '../../redux/actions';
+import Header from '../../components/Header/Header';
+import Table from '../../components/Table/Table';
 
 const ALIMENTACAO = 'Alimentação';
 

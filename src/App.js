@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import Login from './pages/Login';
-import Wallet from './pages/Wallet';
+import Login from './pages/Login/Login';
+import Wallet from './pages/Wallet/Wallet';
 
 class App extends React.Component {
   render() {
@@ -10,7 +10,7 @@ class App extends React.Component {
         <Route
           exact
           path="/"
-          component={ Login }
+          render={ (props) => <Login { ...props } /> }
         />
         <Route
           exact
