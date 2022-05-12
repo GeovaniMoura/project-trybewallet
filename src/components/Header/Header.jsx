@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import styles from './Header.module.css';
 
 class Header extends React.Component {
   constructor(props) {
@@ -21,11 +22,24 @@ class Header extends React.Component {
   render() {
     const { email } = this.props;
     return (
-      <header>
-        <p data-testid="email-field">{email}</p>
-        <p data-testid="total-field">{this.updateValue()}</p>
-        <p data-testid="header-currency-field">BRL</p>
-        <div>TrybeWallet</div>
+      <header className={ styles.header__container }>
+        <div className={ styles.header__title }>
+          <h1>Trybe</h1>
+          <h2>Wallet</h2>
+        </div>
+        <div className={ styles.header__infos }>
+          <div className={ styles.email__container }>
+            <p data-testid="email-field">{email}</p>
+          </div>
+          <div className={ styles.totalValue__container }>
+            <p
+              data-testid="total-field"
+            >
+              {`Valor Total: ${this.updateValue().replace('.', ',')}`}
+            </p>
+            <p data-testid="header-currency-field">BRL</p>
+          </div>
+        </div>
       </header>
     );
   }

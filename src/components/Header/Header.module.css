@@ -1,3 +1,47 @@
 * {
   margin: 0;
 }
+
+.header__container {
+  background-image: url('../../images/hour.svg');
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.header__title h1 {
+  color: #7843e6;
+  font-family: Bungee, cursive;
+  font-size: 72px;
+  font-weight: 400;
+  line-height: 100px;
+  margin: 20px 0 0 10px;
+  text-align: center;
+  text-shadow: -4px 4px 0 fuchsia, 4px -4px 0 aqua;
+}
+
+.header__title h2 {
+  color: white;
+  font-family: Bungee, cursive;
+  font-size: 42px;
+  font-style: normal;
+  font-weight: 400;
+  margin: 0 0 10px;
+  text-align: center;
+  text-shadow: 4.5px 1.1px 0 aqua, -4.5px -1.1px 0 fuchsia;
+}
+
+.header__infos {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+}
+
+.totalValue__container {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.email__container {
+  display: flex;
+}

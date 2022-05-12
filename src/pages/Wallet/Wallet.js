@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { deleteAndUpdateExpense, getCurrencies, saveExpense } from '../../redux/actions';
+import styles from './Wallet.module.css';
 import Header from '../../components/Header/Header';
 import Table from '../../components/Table/Table';
 
@@ -105,7 +106,7 @@ class Wallet extends React.Component {
     return (
       <div>
         <Header />
-        <form>
+        <form className={ styles.form__container }>
           <label htmlFor="value-input">
             Valor:
             <input
@@ -145,6 +146,7 @@ class Wallet extends React.Component {
             </select>
           </label>
           <label htmlFor="method-input">
+            Método de pagamento:
             <select
               onChange={ this.inputChange }
               value={ methodInput }
@@ -158,6 +160,7 @@ class Wallet extends React.Component {
             </select>
           </label>
           <label htmlFor="tag-input">
+            Tag:
             <select
               onChange={ this.inputChange }
               value={ tagInput }

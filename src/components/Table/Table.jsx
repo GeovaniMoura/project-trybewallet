@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import styles from './Table.module.css';
 import { deleteAndUpdateExpense } from '../../redux/actions';
 
 class Table extends React.Component {
@@ -14,9 +15,8 @@ class Table extends React.Component {
     const { expenses, editExpense } = this.props;
     return (
       <table>
-        <caption>Gastos</caption>
         <thead>
-          <tr>
+          <tr className={ styles.header__table }>
             <th>Descrição</th>
             <th>Tag</th>
             <th>Método de pagamento</th>
@@ -30,14 +30,16 @@ class Table extends React.Component {
         </thead>
         {expenses.map((item) => (
           <tbody key={ item.id }>
-            <tr>
+            <tr className={ styles.body__table }>
               <td>{item.description}</td>
               <td>{item.tag}</td>
               <td>{item.method}</td>
-              <td>{`${item.value}.00`}</td>
+              <td>{`${item.value},00`}</td>
               <td>{item.exchangeRates[item.currency].name}</td>
               <td>{Number(item.exchangeRates[item.currency].ask).toFixed(2)}</td>
-              <td>{(item.value * item.exchangeRates[item.currency].ask).toFixed(2)}</td>
+              <td>
+                {`R$ ${(item.value * item.exchangeRates[item.currency].ask).toFixed(2)}`}
+              </td>
               <td>Real</td>
               <td>
                 <button
