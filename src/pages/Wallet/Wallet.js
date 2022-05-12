@@ -91,6 +91,21 @@ class Wallet extends React.Component {
     this.setState({ editForm: false, idEditing: null });
   }
 
+  removeExpense = (id) => {
+    const { expenses, delAndUpdateExpense } = this.props;
+    const removeExpense = expenses.filter((item) => item.id !== id);
+    delAndUpdateExpense(removeExpense);
+    this.setState({
+      editForm: false,
+      idEditing: null,
+      valueInput: 0,
+      descriptionInput: '',
+      currencyInput: 'USD',
+      methodInput: 'Dinheiro',
+      tagInput: ALIMENTACAO,
+    });
+  }
+
   render() {
     const {
       valueInput,
@@ -186,7 +201,7 @@ class Wallet extends React.Component {
             <button type="button" onClick={ this.addExpenses }>Adicionar despesa</button>
           )}
         </form>
-        <Table editExpense={ this.editExpense } />
+        <Table editExpense={ this.editExpense } removeExpense={ this.removeExpense } />
       </div>
     );
   }
