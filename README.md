@@ -68,13 +68,21 @@ Se desejar mais informações sobre a API, acesse sua [documentação](https://d
 
 ### Página de Login
 
-<img src="./images/LOGIN.png" alt="Página Inicial">
-
 Página inicial da aplicação, contém inputs de email e senha. 
+
+
+<img src="./images/Login.png" alt="Página Inicial"/>
+
+
 
 ### Página da Carteira
 
 Página que gerencia a carteira de gastos, e retorna a despesa total em real.
+
+
+<img src="./images/despesas.png" alt="Página de despesas"/>
+
+
 
 ### Header
 
