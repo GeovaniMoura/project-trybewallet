@@ -46,18 +46,18 @@ Visualizar o total de gastos convertidos para uma moeda de escolha;
 4. Verifique a sua branch
 
 - Verifique se está na branch `main`, digite:
- -`git branch`
+ - `git branch`
 - Caso não esteja, digite:
- -`git checkout main`
+ - `git checkout main`
 
 5. Crie a sua branch
 
--`git checkout -b "nome-da-sua-branch"`
+- `git checkout -b "nome-da-sua-branch"`
 
 ## Linter
 Utilizei o linter ESLint da Trybe para desenvolver meu projeto, para rodar o _linter_ no projeto, digite:
 
--`npm run lint`
+- `npm run lint`
 
 ## Documentação da API de Cotações de Moedas
 Se desejar mais informações sobre a API, acesse sua [documentação](https://docs.awesomeapi.com.br/api-de-moedas)
@@ -67,6 +67,8 @@ Se desejar mais informações sobre a API, acesse sua [documentação](https://d
 ## Lista de requisitos
 
 ### Página de Login
+
+<img src="./images/LOGIN.png" alt="Página Inicial">
 
 Página inicial da aplicação, contém inputs de email e senha. 
 
