@@ -1,7 +1,7 @@
 
-# Boas vindas ao repositório do projeto Trybe Wallet
+# Projeto Trybe Wallet
 
-# Sumário
+Desenvolvi uma aplicação em React usando Redux como ferramenta de manipulação de estado. Através dessa aplicação, foi possível realizar as operações básicas de criação e manipulação de um estado de redux.
 
 # Habilidades
 
@@ -19,31 +19,48 @@ Neste projeto, testamos as habilidades de:
 
 - Criar actions assíncronas na sua aplicação React que faz uso de Redux.
 
-# Entregáveis
+## Sobre a aplicação
 
-## O que deverá ser desenvolvido
+Desenvolvi uma carteira de controle de gastos com conversor de moedas, ao utilizar essa aplicação o usuário é capaz de:
 
-## Desenvolvimento
-
-## Data de Entrega
-
-# Instruções para entregar seu projeto
+Adicionar, remover e editar um gasto;
+Visualizar uma tabelas com seus gastos;
+Visualizar o total de gastos convertidos para uma moeda de escolha;
 
 ## Antes de começar a desenvolver
+1. Clone o repositório
 
-## Durante o desenvolvimento
+- `git clone git@github.com:GeovaniMoura/projeto-trybewallet.git`
 
-# Como desenvolver
+2. Entre na pasta do projeto
+
+- `cd projeto-trybewallet`
+
+3. Instale as dependências e inicialize o projeto
+
+- Instale as dependências:
+  - `npm install`
+- Inicialize o projeto:
+  - `npm start` (uma nova página deve abrir no seu navegador com um texto simples)
+
+4. Verifique a sua branch
+
+- Verifique se está na branch `main`, digite:
+ -`git branch`
+- Caso não esteja, digite:
+ -`git checkout main`
+
+5. Crie a sua branch
+
+-`git checkout -b "nome-da-sua-branch"`
 
 ## Linter
+Utilizei o linter ESLint da Trybe para desenvolver meu projeto, para rodar o _linter_ no projeto, digite:
 
-## Configurando o Redux DevTools
+-`npm run lint`
 
 ## Documentação da API de Cotações de Moedas
-
-## Execução de testes unitários
-
-### Dica: desativando testes
+Se desejar mais informações sobre a API, acesse sua [documentação](https://docs.awesomeapi.com.br/api-de-moedas)
 
 # Requisitos do projeto
 
@@ -51,42 +68,21 @@ Neste projeto, testamos as habilidades de:
 
 ### Página de Login
 
-#### 1. Crie uma página inicial de login com os seguintes campos e características
+Página inicial da aplicação, contém inputs de email e senha. 
 
 ### Página da Carteira
 
-### Configurando sua página
-
-#### 2. Crie uma página para sua carteira com as seguintes características
+Página que gerencia a carteira de gastos, e retorna a despesa total em real.
 
 ### Header
 
-#### 3. Crie um header para a página de carteira contendo as seguintes características
+Cabeçalho da página.
 
 ### Formulário de adição de Despesa
 
-#### 4. Implemente a lógica para armazenar no estado global as siglas das moedas que vêm da API
-
-#### 5. Desenvolva um formulário para adicionar uma despesa contendo as seguintes características:
-
-#### 6. Salve todas as informações do formulário no estado global
+Contém os inputs para adicionar uma nova despesa.
 
 ### Tabela de Gastos
 
-#### 7. Desenvolva uma tabela com os gastos contendo as seguintes características:
+Componente em que é renderizado as despesas adicionadas.
 
-
-
-#### 8. Implemente a lógica para que a tabela seja alimentada pelo estado da aplicação
-
-
-#### 9. Crie um botão para deletar uma despesa da tabela contendo as seguintes características:
-
-
-#### 10. Crie um botão para editar uma despesa da tabela contendo as seguintes características:
-
-## Depois de terminar o desenvolvimento
-
-### Revisando um pull request
-
-# Avisos Finais
