@@ -24,7 +24,9 @@ Neste projeto, testamos as habilidades de:
 Desenvolvi uma carteira de controle de gastos com conversor de moedas, ao utilizar essa aplicação o usuário é capaz de:
 
 Adicionar, remover e editar um gasto;
-Visualizar uma tabelas com seus gastos;
+
+Visualizar uma tabela com seus gastos;
+
 Visualizar o total de gastos convertidos para uma moeda de escolha;
 
 ## Antes de começar a desenvolver
